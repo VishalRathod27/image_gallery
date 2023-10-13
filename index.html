@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your existing head content here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gallery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="container" id="content">
+    <div class="nav" id="main">
+        <div id="btn">
+            <!-- Dropdown for filtering categories (unchanged) -->
+            <select id="select" onchange="getValue()" style="text-align: center;"
+                    style="background-color: rgba(125, 125, 146, 0.781);">
+                <!-- <option>Choose option</option> -->
+                <option>All</option>
+                <option>Hill</option>
+                <option>Flag</option>
+                <option>God</option>
+                <option>Car</option>
+            </select>
+        </div>
+        <!-- <div class="imgselector"> -->
+            <!-- <span><img src="upload_placeholder.jpg" alt=""></span> -->
+            <!-- <input type="file" accept="image/*" onchange="uploadImage(this)"> -->
+            
+            
+            <!-- <input onchange="uploadImages(this)" accept="image/*" type="file" multiple>
+            <label for="file">Upload</label> -->
+             <button class="btn1">
+             <input type="file" id="file-input" name="file-input" accept="image/*" onchange="uploadImages(this)" / multiple>
+          
+          <label id="file-input-label" for="file-input">
+           Select a File
+            </label>
+        </button>
+           
+        <!-- </div> -->
+    </div>
+    <div class="wrapper">
+        <div class="gallery">   
+        </div>
+    </div>
+    
+    <div class="preview-box">
+        <!-- Your existing preview box content here (unchanged) -->
+        <div class="details">
+            <span class="title"> <p class="current-img"></p> <p class="total-img"></p></span>
+            <span class="icon fas fa-times"></span>
+        </div>
+        <div>
+                    <div class="image-box">
+            <!-- <div class="slide prev"><i class="fas fa-angle-left"></i></div>
+            <div class="slide next"><i class="fas fa-angle-right"></i></div> -->
+            <img src="" alt="">
+        </div>
+
+        <!-- ... (existing preview box content) ... -->
+    </div>
+    <div class="shadow"></div>
+</div>
+
+<script src="img.js"></script>
+</body>
+</html>
+

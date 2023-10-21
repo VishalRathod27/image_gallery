@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html> -->
 <html lang="en">
 <head>
     <!-- Your existing head content here -->
@@ -7,20 +7,22 @@
     <title>My Gallery</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" type="text/css" href="style.css">
+    
 </head>
 <body>
 <div class="container" id="content">
     <div class="nav" id="main">
+        
         <div id="btn">
             <!-- Dropdown for filtering categories (unchanged) -->
             <select id="select" onchange="getValue()" style="text-align: center;"
                     style="background-color: rgba(125, 125, 146, 0.781);">
                 <!-- <option>Choose option</option> -->
                 <option>All</option>
-                <option>Hill</option>
                 <option>Flag</option>
+                <option>Hill</option>
                 <option>God</option>
-                <option>Car</option>
+                
             </select>
         </div>
         <!-- <div class="imgselector"> -->
@@ -31,7 +33,7 @@
             <!-- <input onchange="uploadImages(this)" accept="image/*" type="file" multiple>
             <label for="file">Upload</label> -->
              <button class="btn1">
-             <input type="file" id="file-input" name="file-input" accept="image/*" onchange="uploadImages(this)" / multiple>
+             <input type="file" id="file-input" name="file-input" accept="image/*" onchange="uploadImages(this)"multiple>
           
           <label id="file-input-label" for="file-input">
            Select a File
@@ -40,6 +42,11 @@
            
         <!-- </div> -->
     </div>
+            <input type="text" id="new-category" placeholder="Enter a new category">
+            <button id="add-category">Add Category</button>
+            
+
+     
     <div class="wrapper">
         <div class="gallery">   
         </div>
@@ -62,6 +69,13 @@
     </div>
     <div class="shadow"></div>
 </div>
+     <!-- <div class="image" data-index="0" data-category="category"> -->
+    <span>
+        <!-- <img src="" alt="Image Name"> -->
+    </span>
+    <p class="image-caption"></p>
+</div>
+
 
 <script src="img.js"></script>
 </body>

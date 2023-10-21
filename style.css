@@ -1,6 +1,4 @@
-/* Your existing CSS styles here */
-
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
         * {
             margin: 0;
             padding: 0;
@@ -12,15 +10,17 @@
             background: #007bff;
         }
         body {
-            padding: 10px;
+            padding: 15px;
             display: flex;
-            align-items: center;
-            justify-content: center;
+/*            align-items: center;*/
+/*            justify-content: center;*/                    
             min-height: 100vh;
-            background-color: rgba(109, 103, 103, 0.772);
+            background-color: #fff;
         }
         .wrapper {
-            max-width: 1100px;
+            align-items: center;
+            justify-content: center;
+/*            max-width: 1500px;*/
         }
         .gallery {
             display: flex;
@@ -31,12 +31,15 @@
             width: calc(100% / 3);
         }
         .gallery .image span {
+          /*  align-items: center;
+            justify-content: center;*/
             display: flex;
             width: 100%;
             overflow: hidden;
         }
         .gallery .image img {
-            width: 100%;
+            width: 500px; /* Set a specific width */
+            height: 300px; /* Set a specific height */
             vertical-align: middle;
             transition: all 0.3s ease;
             border-radius: 33px;
@@ -94,7 +97,9 @@
             position: relative;
         }
         .image-box .slide {
-            position: absolute;
+            align-items: center;
+            justify-content: center;
+/*            position: absolute;*/
             top: 50%;
             transform: translateY(-50%);
             color: #fff;
@@ -132,28 +137,9 @@
             color: darkred;
         }
 
-      /*  input[type="file"] {
-            color: transparent;
-            display: flex-right;
-            text-decoration: none;
-            background: #c48b75;
-            border: none;
-            border-radius: 60px;
-            color: #fff;
-            cursor: pointer;
-            display: inline-block;
-            font-family: 'Rubik', sans-serif;
-            font-size: inherit;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            outline: none;
-            padding: 1rem 10px;
-            position: relative;
-            transition: all 0.3s;
-            vertical-align: middle;
-        }*/
+      
         #select{
-            background: #c48b75;
+              background: black;
               border: none;
               border-radius: 60px;
               color: #fff;
@@ -192,9 +178,9 @@
 }
 
 .btn1 {
-    background-color:  #c48b75;
-    border-radius: 60px;
-     font-family: 'Rubik', sans-serif;
+            background-color:  black;
+            border-radius: 60px;
+            font-family: 'Rubik', sans-serif;
             font-size: inherit;
             font-weight: 500;
             margin-bottom: 1rem;
@@ -211,7 +197,7 @@
 }
 
         .lemon{
-            background-color: gray;
+/*            background-color: gray;*/
             color: red;
             border: none;
             outline: none;
@@ -220,6 +206,43 @@
             padding: 5px 5px;
             border-radius: 15px;
         }
+        #new-category {
+            background: black;
+              border: none;
+              border-radius: 15px;
+              color: #fff;
+              cursor: pointer;
+              display: inline-block;
+              font-family: 'Rubik', sans-serif;
+              font-size: inherit;
+              font-weight: 300;
+              margin-bottom: 1rem;
+              outline: none;
+              padding: 1rem 30px;
+              position: relative;
+              transition: all 0.3s;
+              vertical-align: middle;
+
+        }
+        #add-category {
+            background: black;
+              border: none;
+              border-radius: 15px;
+              color: #fff;
+              cursor: pointer;
+              display: inline-block;
+              font-family: 'Rubik', sans-serif;
+              font-size: inherit;
+              font-weight: 300;
+              margin-bottom: 1rem;
+              outline: none;
+              padding: 1rem 30px;
+              position: relative;
+              transition: all 0.3s;
+              vertical-align: middle;
+        }
+
+        
         
 
         @media(max-width: 1000px) {

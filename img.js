@@ -5,10 +5,13 @@ const previewBox = document.querySelector(".preview-box");
 const previewImg = previewBox.querySelector("img");
 const currentImg = previewBox.querySelector(".current-img");
 const totalImg = previewBox.querySelector(".total-img");
-
-var gallery;
+const newCategoryInput = document.getElementById("new-category");
+const gallery = document.querySelectorAll('.image'); // Define gallery
+const categorySelect = document.getElementById("select");
+const imageNameDisplay = document.querySelector(".image-name"); // Add this line
 
 function filterImages(category) {
+    console.log(filterImages, category);
     const gallery = document.querySelectorAll(".image");
     gallery.forEach((image) => {
         const imageCategory = image.getAttribute("data-category");
@@ -26,9 +29,13 @@ function getValue() {
 }
 
 document.querySelector('.gallery').addEventListener("click", (event) => {
-    let imageURL = event.target.src;
-    previewImg.src = imageURL;
-    previewBox.classList.add("show");
+    if (event.target.tagName === "IMG") {
+        let imageURL = event.target.src;
+        let imageName = event.target.alt; // Get the image name
+        previewImg.src = imageURL;
+        previewBox.classList.add("show");
+        imageNameDisplay.textContent = imageName; // Display the image name
+    }
 });
 
 closeIcon.addEventListener("click", (event) => {
@@ -40,22 +47,26 @@ closeIcon.addEventListener("click", (event) => {
 function addDeleteButton(image) {
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("lemon");
-    deleteButton.innerText = "Delete";
-    deleteButton.addEventListener("click", (event) => {
-        event.stopPropagation(); // propagation to the preview box
-        if (image !== previewBox) {
+    
+    // Use the "fas fa-trash" icon from FontAwesome
+    deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
+    
+    deleteButton.addEventListener("click", () => {
+        if (confirm("Are you sure you want to delete this image?")) {
             image.remove();
         }
     });
+    
     image.appendChild(deleteButton);
 }
 
-// Add delete buttons to existing images
-gallery.forEach((image) => {
-    addDeleteButton(image);
-});
+// gallery.forEach((image) => {
+//     addDeleteButton(image);
+// });
+
 
 function uploadImages(input) {
+    // console.log(uploadImages , input.files);
     if (input.files && input.files.length > 0) {
         for (let i = 0; i < input.files.length; i++) {
             const reader = new FileReader();
@@ -64,7 +75,11 @@ function uploadImages(input) {
                 newImage.classList.add("image");
                 newImage.setAttribute('data-index', i);
                 newImage.setAttribute("data-category", select.value);
-                newImage.innerHTML = `<span><img src="${e.target.result}" alt=""></span>`;
+                newImage.innerHTML = `
+                    <span>
+                        <img src="${e.target.result}" alt="${input.files[i].name}">
+                    </span>
+                    <p class="image-caption">${input.files[i].name}</p>`;
                 document.querySelector(".gallery").appendChild(newImage);
                 addDeleteButton(newImage); // Add delete button to the new image
                 filterImages(select.value); // Call filterImages after adding the image
@@ -73,3 +88,32 @@ function uploadImages(input) {
         }
     }
 }
+
+
+
+
+gallery.forEach((image) => {
+    addDeleteButton(image);
+});
+
+// add category in dropdown
+
+const addCategoryButton = document.getElementById("add-category");
+
+addCategoryButton.addEventListener("click", () => {
+    const newCategoryInput = document.getElementById("new-category");
+    const newCategory = newCategoryInput.value;
+    
+    if (newCategory.trim() !== "") {
+        // Create a new option element for the select dropdown
+        const newOption = document.createElement("option");
+        newOption.textContent = newCategory;
+        newOption.value = newCategory;
+        
+        // Add the new option to the select dropdown
+        categorySelect.appendChild(newOption);
+        
+        // Clear the input field
+        newCategoryInput.value = "";
+    }
+});
